@@ -8,7 +8,7 @@
 
 <script lang="ts">
     window.onscroll = () => {
-        let el: HTMLElement | null = document.getElementById("nav"); 
+        let el = document.getElementById("nav") as HTMLElement; 
         if (window.scrollY > 0) {
             el!.className = "navbar-scroll-down"
         } else {
