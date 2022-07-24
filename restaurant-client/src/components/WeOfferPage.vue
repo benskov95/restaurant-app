@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="we-offer-page">
         <h1>What we offer</h1>
     </div>
 </template>
@@ -9,11 +9,12 @@
 
 <style scoped>
     div {
-        background-color: white;
         height: 100vh;
         width: 100%;
+        overflow: auto;
     }
     h1 {
+        margin-top: 20vh;
         text-decoration: underline;
     }
 </style>

@@ -1,57 +1,69 @@
 <template>
-    <div id="nav" class="nav">
-        <button>Home</button>
-        <button>What we offer</button>
-        <button>About us</button>
+    <div id="nav" class="navbar">
+        <button id="home" @click="scrollToComponent">Home</button>
+        <button id="we-offer" @click="scrollToComponent">What we offer</button>
+        <button id="about">About us</button>
     </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
     window.onscroll = () => {
+        let el: HTMLElement | null = document.getElementById("nav"); 
         if (window.scrollY > 0) {
-            document.getElementById("nav")!.className = "nav-scroll-down"
+            el!.className = "navbar-scroll-down"
         } else {
-            document.getElementById("nav")!.className = "nav-scroll-up";
+            el!.className = "navbar-scroll-up";
+        }
+    }
+
+    export default {
+        methods: {
+            scrollToComponent(e: PointerEvent) {
+                const target = e.target as HTMLTextAreaElement;
+                window.scrollTo({
+                    top: document.getElementById(target.id + "-page")?.offsetTop,
+                    left: 0,
+                    behavior: "smooth"
+                })
+            }
         }
     }
 </script>
 
 <style scoped>
-    .nav {
+    .navbar {
         background-color: transparent;
-        padding-bottom: 3px;
-        position: fixed;
-        width: 100%;
-        height: 10%;
         color: white;
+        padding-bottom: 3px;
+        position: fixed;
+        width: 100%;
+        height: 10%;
     }
-    .nav-scroll-down {
+    .navbar-scroll-down {
         background-color: transparent;
         padding-bottom: 3px;
         position: fixed;
         width: 100%;
         height: 10%;
-        animation: scroll-load 1s;
+        animation: load 1s;
         animation-fill-mode: forwards;
     }
-    @keyframes scroll-load {
-        from {}
+    @keyframes load {
         to {
             background-color: white;
             color: black;
         }
     }
-    .nav-scroll-up {
+    .navbar-scroll-up {
         background-color: white;
         padding-bottom: 3px;
         position: fixed;
         width: 100%;
         height: 10%;
-        animation: scroll-unload 1s;
+        animation: unload 1s;
         animation-fill-mode: forwards;
     }
-    @keyframes scroll-unload {
-        from {}
+    @keyframes unload {
         to {
             background-color: transparent;
             color: white;

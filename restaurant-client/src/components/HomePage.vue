@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="home-page">
         <h1>We love good food.</h1>
     </div>
 </template>
@@ -27,7 +27,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
-        font-size: 5rem;
+        font-size: 5vw;
         width: auto;
         display: inline-block;
         overflow: hidden; 
