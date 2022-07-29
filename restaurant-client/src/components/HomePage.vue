@@ -14,7 +14,6 @@
     }
     div {
         position: relative;
-        z-index: -1;
         height: 100vh;
         width: 100%;
         background-image: url("https://images.squarespace-cdn.com/content/v1/57879a6cbebafb879f256735/1579721476536-V0ZXZDAJ7P1H939N5FGF/header2.jpg");
@@ -31,7 +30,7 @@
         width: auto;
         display: inline-block;
         overflow: hidden; 
-        border-right: .15em solid greenyellow; 
+        border-right: .15em solid orange; 
         white-space: nowrap; 
         margin: 0 auto; 
         animation: 
@@ -44,6 +43,6 @@
     }
     @keyframes blink-caret {
         from, to { border-color: transparent }
-        50% { border-color: greenyellow; }
+        50% { border-color: orange; }
     }
 </style>

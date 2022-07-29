@@ -3,6 +3,7 @@
     <NavBar />
     <HomePage />
     <WeOfferPage />
+    <AboutPage />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import NavBar from "./components/NavBar.vue";
 import HomePage from "./components/HomePage.vue";
 import WeOfferPage from "./components/WeOfferPage.vue";
+import AboutPage from "./components/AboutPage.vue";
 
 export default {
   name: "app",
@@ -17,6 +19,7 @@ export default {
     NavBar,
     HomePage,
     WeOfferPage,
+    AboutPage,
   }
 }
 </script>
