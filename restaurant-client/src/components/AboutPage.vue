@@ -4,7 +4,7 @@
             <img src="https://www.thespruceeats.com/thmb/4z_oB9CDXgBNVmwsPjpmtzOTNUU=/2578x2578/smart/filters:no_upscale()/Steaks-on-the-Grill-58a72a285f9b58a3c95a4a2d.jpg" />
         </div>
         <div class="col">
-            <div class="pik">
+            <div class="content">
                 <h1>About us</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in tortor orci. Cras non cursus ipsum, id suscipit orci. Ut tincidunt nec ex id rutrum. Donec molestie leo a est ultricies, eleifend feugiat mi rutrum.<br /><br/> 
@@ -27,11 +27,11 @@
         grid-template-columns: 50% 50%;
         transform: skewY(3deg);
     }
-    .pik {
+    .content {
         color: white;
         transform: skewy(-3deg);
     }
-    .pik p {
+    .content p {
         font-size: 1.2rem;
         width: 60%;
         margin: 0px auto 0px auto;

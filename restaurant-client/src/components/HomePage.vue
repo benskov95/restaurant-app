@@ -8,10 +8,6 @@
 </script>
 
 <style scoped>
-    body {
-        margin: 0;
-        padding: 0;
-    }
     div {
         position: relative;
         height: 100vh;

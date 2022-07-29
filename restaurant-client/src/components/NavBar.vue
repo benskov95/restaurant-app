@@ -3,6 +3,8 @@
         <button id="home" @click="scrollToComponent">Home</button>
         <button id="we-offer" @click="scrollToComponent">What we offer</button>
         <button id="about" @click="scrollToComponent">About us</button>
+        <button id="menu" @click="scrollTopComponent">Menu</button>
+        <button id="contact" @click="scrollTopComponent">Contact us</button>
     </div>
 </template>
 
