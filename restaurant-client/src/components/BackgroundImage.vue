@@ -13,7 +13,7 @@ div {
     width: 100%;
     height: 1000px;
     position: absolute;
-    margin-top: -20%;
+    margin-top: -10%;
     z-index: -1;
 }
 </style>

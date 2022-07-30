@@ -22,20 +22,20 @@
 </template>
 
 <script setup lang="ts">
-    document.addEventListener("scroll", () => {
-        let items = document.getElementById("grid-container")?.children as HTMLCollection;
-        if (window.scrollY >= 250 && items[0].className.length === 0) {
-            Array.from(items).forEach(item => {
-                item.className = "grid-item";
-            })
-        }
-    })
+document.addEventListener("scroll", () => {
+    let items = document.getElementById("grid-container")?.children as HTMLCollection;
+    if (window.scrollY >= 250 && items[0].className.length === 0) {
+        Array.from(items).forEach(item => {
+            item.className = "grid-item";
+        })
+    }
+})
 </script>
 
 <style scoped>
 #we-offer-page {
     width: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 20%;
     overflow: auto;
 }
 h1 {
@@ -66,6 +66,11 @@ h1 {
 @keyframes appear {
     to {
         opacity: 1;
+    }
+}
+@media(min-width: 1000px) {
+    #we-offer-page {
+        margin-bottom: 10%;
     }
 }
 </style>

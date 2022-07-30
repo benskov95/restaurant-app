@@ -30,11 +30,11 @@
     content: "";
     display: block;
     width: 100%;
-    height: 85px;
+    height: 5.5rem;
     background-color: white;
     transform: skew(0deg, 2.5deg);
     position: absolute;
-    margin-top: -85px;
+    margin-top: -5.5rem;
     transform-origin: left;
 }
 .content {

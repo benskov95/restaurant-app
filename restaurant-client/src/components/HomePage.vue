@@ -22,7 +22,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 5vw;
+    font-size: 3rem;
     width: auto;
     display: inline-block;
     overflow: hidden; 
@@ -40,5 +40,10 @@ h1 {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: orange; }
+}
+@media(min-width: 800px) {
+    h1 {
+        font-size: 5rem;
+    }
 }
 </style>
