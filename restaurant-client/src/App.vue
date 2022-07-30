@@ -4,6 +4,8 @@
     <HomePage />
     <WeOfferPage />
     <AboutPage />
+    <BackgroundImage />
+    <MenuPage />
   </div>
 </template>
 
@@ -12,6 +14,8 @@ import NavBar from "./components/NavBar.vue";
 import HomePage from "./components/HomePage.vue";
 import WeOfferPage from "./components/WeOfferPage.vue";
 import AboutPage from "./components/AboutPage.vue";
+import MenuPage from "./components/MenuPage.vue";
+import BackgroundImage from "./components/BackgroundImage.vue";
 
 export default {
   name: "app",
@@ -20,6 +24,8 @@ export default {
     HomePage,
     WeOfferPage,
     AboutPage,
+    MenuPage,
+    BackgroundImage
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div id="about-page">
         <div class="col">
-            <img src="https://www.thespruceeats.com/thmb/4z_oB9CDXgBNVmwsPjpmtzOTNUU=/2578x2578/smart/filters:no_upscale()/Steaks-on-the-Grill-58a72a285f9b58a3c95a4a2d.jpg" />
+            <img src="https://www.thespruceeats.com/thmb/4z_oB9CDXgBNVmwsPjpmtzOTNUU=/2578x2578/smart/filters:no_upscale()/Steaks-on-the-Grill-58a72a285f9b58a3c95a4a2d.jpg" alt="" />
         </div>
         <div class="col">
             <div class="content">
@@ -22,27 +22,37 @@
 </script>
 
 <style scoped>
-    #about-page {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        transform: skewY(3deg);
-    }
-    .content {
-        color: white;
-        transform: skewy(-3deg);
-    }
-    .content p {
-        font-size: 1.2rem;
-        width: 60%;
-        margin: 0px auto 0px auto;
-        padding-bottom: 1.5rem;
-    }
-    .col {
-        background-color: orange;
-    }
-    .col img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+#about-page {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+#about-page::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 85px;
+    background-color: white;
+    transform: skew(0deg, 2.5deg);
+    position: absolute;
+    margin-top: -85px;
+    transform-origin: left;
+}
+.content {
+    color: white;
+    margin-top: 15%;
+}
+.content p {
+    font-size: 1.2rem;
+    width: 60%;
+    margin: 0px auto 0px auto;
+    padding-bottom: 1.5rem;
+}
+.col {
+    background-color: orange;
+}
+.col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 </style>

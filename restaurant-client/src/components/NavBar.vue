@@ -32,56 +32,56 @@
 </script>
 
 <style scoped>
-    .navbar {
+.navbar {
+    background-color: transparent;
+    color: white;
+    padding-bottom: 3px;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    z-index: 1;
+}
+.navbar-scroll-down {
+    background-color: transparent;
+    padding-bottom: 3px;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    z-index: 1;
+    animation: load 1s;
+    animation-fill-mode: forwards;
+}
+.navbar-scroll-up {
+    background-color: white;
+    padding-bottom: 3px;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    z-index: 1;
+    animation: unload 1s;
+    animation-fill-mode: forwards;
+}
+button {
+    float: left;
+    margin: 4vh 0.5rem 0rem 0.5rem;
+    background-color: transparent;
+    color: inherit;
+    border: 0px;
+}
+button:hover {
+    border-bottom: 3px solid orange;
+    cursor: pointer;
+}
+@keyframes load {
+    to {
+        background-color: white;
+        color: black;
+    }
+}
+@keyframes unload {
+    to {
         background-color: transparent;
         color: white;
-        padding-bottom: 3px;
-        position: fixed;
-        width: 100%;
-        height: 10%;
-        z-index: 1;
     }
-    .navbar-scroll-down {
-        background-color: transparent;
-        padding-bottom: 3px;
-        position: fixed;
-        width: 100%;
-        height: 10%;
-        z-index: 1;
-        animation: load 1s;
-        animation-fill-mode: forwards;
-    }
-    .navbar-scroll-up {
-        background-color: white;
-        padding-bottom: 3px;
-        position: fixed;
-        width: 100%;
-        height: 10%;
-        z-index: 1;
-        animation: unload 1s;
-        animation-fill-mode: forwards;
-    }
-    button {
-        float: left;
-        margin: 4vh 0.5rem 0rem 0.5rem;
-        background-color: transparent;
-        color: inherit;
-        border: 0px;
-    }
-    button:hover {
-        border-bottom: 3px solid orange;
-        cursor: pointer;
-    }
-    @keyframes load {
-        to {
-            background-color: white;
-            color: black;
-        }
-    }
-    @keyframes unload {
-        to {
-            background-color: transparent;
-            color: white;
-        }
-    }
+}
 </style>
