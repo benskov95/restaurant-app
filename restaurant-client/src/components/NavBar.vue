@@ -7,13 +7,64 @@
         <button id="contact" @click="scrollToComponent">Contact us</button>
     </div>
     <div id="nav" class="navbar" v-else>
-        <fa-icon :style="{cursor: 'pointer', float: 'left', margin: '0.5rem 0px 0px 1rem'}" icon="fa-solid fa-bars" size="2xl" />
+        <fa-icon 
+        v-if="showDropdownMenu"
+        icon="fa-solid fa-close" 
+        :style="{cursor: 'pointer', float: 'right', margin: '0.5rem 1rem 0px 0px'}" 
+        @click="toggleMenu"
+        size="2xl" />
+        <fa-icon
+         v-else
+        icon="fa-solid fa-bars" 
+        :style="{cursor: 'pointer', float: 'right', margin: '0.5rem 1rem 0px 0px'}" 
+        @click="toggleMenu"
+        size="2xl" />
     </div>
+    <div id="dropdown-menu" v-if="showDropdownMenu && useBurgerBtn">
+        <ul class="options-list">
+            <li class="options-list-el" id="home" @click="scrollToComponent">
+                Home
+            </li>
+            <li class="options-list-el" id="we-offer" @click="scrollToComponent">
+                What we offer
+            </li>
+            <li class="options-list-el" id="about" @click="scrollToComponent">
+                About us
+            </li>
+            <li class="options-list-el" id="menu" @click="scrollToComponent">
+                Menu
+            </li>
+            <li class="options-list-el" id="contact" @click="scrollToComponent">
+                Contact us
+            </li>
+        </ul>
+    </div>
+    <div id="dropdown-menu-close" v-else>
+        <ul class="options-list">
+            <li class="options-list-el" id="home" @click="scrollToComponent">
+                Home
+            </li>
+            <li class="options-list-el" id="we-offer" @click="scrollToComponent">
+                What we offer
+            </li>
+            <li class="options-list-el" id="about" @click="scrollToComponent">
+                About us
+            </li>
+            <li class="options-list-el" id="menu" @click="scrollToComponent">
+                Menu
+            </li>
+            <li class="options-list-el" id="contact" @click="scrollToComponent">
+                Contact us
+            </li>
+        </ul>
+    </div> 
 </template>
 
 <script lang="ts">
 import { ref } from "vue";
+
 let useBurgerBtn = ref(false);
+let showDropdownMenu = ref(false);
 
 document.addEventListener("scroll", () => {
     let el = document.getElementById("nav") as HTMLElement; 
@@ -36,7 +87,8 @@ window.addEventListener("resize", () => {
 export default {
     data() {
         return {
-            useBurgerBtn: useBurgerBtn
+            useBurgerBtn: useBurgerBtn,
+            showDropdownMenu: showDropdownMenu
         }
     },
     methods: {
@@ -46,6 +98,9 @@ export default {
                 top: document.getElementById(target.id + "-page")?.offsetTop,
                 behavior: "smooth"
             })
+        },
+        toggleMenu() {
+            showDropdownMenu.value = !showDropdownMenu.value;
         }
     },
 }
@@ -92,6 +147,45 @@ button:hover {
     border-bottom: 3px solid orange;
     cursor: pointer;
 }
+#dropdown-menu {
+    background-color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    width: 50%;
+    margin: 3rem 1rem 0px 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    animation: loadMenu 1s forwards;
+}
+#dropdown-menu-close {
+    visibility: hidden;
+    background-color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    width: 50%;
+    margin: 3rem 1rem 0px 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    animation: closeMenu 1s forwards;
+}
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.options-list-el {
+    text-align: left;
+    padding: 0.5rem 0px 0.5rem 0px;
+    width: 100%;
+    cursor: pointer;
+}
+.options-list-el:hover {
+    animation: changeColor 1s forwards;
+}
 @keyframes load {
     to {
         background-color: white;
@@ -102,6 +196,32 @@ button:hover {
     to {
         background-color: transparent;
         color: white;
+    }
+}
+@keyframes changeColor {
+    to {
+        background-color: black;
+        color: white;
+    }
+}
+@keyframes loadMenu {
+    from {
+        color: transparent;
+        height: 0%;
+    }
+    to {
+        height: 18%;
+    }
+}
+@keyframes closeMenu {
+    from {
+        height: 18%;
+        visibility: visible;
+    }
+    to {
+        height: 0%;
+        visibility: hidden;
+        color: transparent;
     }
 }
 </style>
