@@ -20,7 +20,7 @@
         @click="toggleMenu"
         size="2xl" />
     </div>
-    <div id="dropdown-menu" v-if="showDropdownMenu && useBurgerBtn">
+    <div :id="dropdownId">
         <ul class="options-list">
             <li class="options-list-el" id="home" @click="scrollToComponent">
                 Home
@@ -39,25 +39,6 @@
             </li>
         </ul>
     </div>
-    <div id="dropdown-menu-close" v-else>
-        <ul class="options-list">
-            <li class="options-list-el" id="home" @click="scrollToComponent">
-                Home
-            </li>
-            <li class="options-list-el" id="we-offer" @click="scrollToComponent">
-                What we offer
-            </li>
-            <li class="options-list-el" id="about" @click="scrollToComponent">
-                About us
-            </li>
-            <li class="options-list-el" id="menu" @click="scrollToComponent">
-                Menu
-            </li>
-            <li class="options-list-el" id="contact" @click="scrollToComponent">
-                Contact us
-            </li>
-        </ul>
-    </div> 
 </template>
 
 <script lang="ts">
@@ -65,6 +46,7 @@ import { ref } from "vue";
 
 let useBurgerBtn = ref(false);
 let showDropdownMenu = ref(false);
+let dropdownId = ref("dropdown-default");
 
 document.addEventListener("scroll", () => {
     let el = document.getElementById("nav") as HTMLElement; 
@@ -81,6 +63,8 @@ window.addEventListener("resize", () => {
         useBurgerBtn.value = true;
     } else {
         useBurgerBtn.value = false;
+        showDropdownMenu.value = false;
+        dropdownId.value = "dropdown-default";
     }
 })
 
@@ -88,7 +72,8 @@ export default {
     data() {
         return {
             useBurgerBtn: useBurgerBtn,
-            showDropdownMenu: showDropdownMenu
+            showDropdownMenu: showDropdownMenu,
+            dropdownId: dropdownId,
         }
     },
     methods: {
@@ -101,6 +86,7 @@ export default {
         },
         toggleMenu() {
             showDropdownMenu.value = !showDropdownMenu.value;
+            dropdownId.value = showDropdownMenu.value ? "dropdown-menu" : "dropdown-menu-closed";
         }
     },
 }
@@ -147,30 +133,32 @@ button:hover {
     border-bottom: 3px solid orange;
     cursor: pointer;
 }
+#dropdown-default {
+    display: none;
+}
 #dropdown-menu {
     background-color: white;
     border-radius: 5px;
     border-width: 0px;
     width: 50%;
-    margin: 3rem 1rem 0px 0px;
+    margin: 3.8rem 1rem 0px 0px;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1;
-    animation: loadMenu 1s forwards;
+    animation: load-menu 0.5s forwards;
 }
-#dropdown-menu-close {
-    visibility: hidden;
+#dropdown-menu-closed {
     background-color: white;
     border-radius: 5px;
     border-width: 0px;
     width: 50%;
-    margin: 3rem 1rem 0px 0px;
+    margin: 3.8rem 1rem 0px 0px;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1;
-    animation: closeMenu 1s forwards;
+    animation: close-menu 0.5s forwards;
 }
 .options-list {
     list-style: none;
@@ -179,12 +167,12 @@ button:hover {
 }
 .options-list-el {
     text-align: left;
-    padding: 0.5rem 0px 0.5rem 0px;
+    padding: 0.5rem 0px 0.5rem 0.5rem;
     width: 100%;
     cursor: pointer;
 }
 .options-list-el:hover {
-    animation: changeColor 1s forwards;
+    animation: change-color 0.7s forwards;
 }
 @keyframes load {
     to {
@@ -198,24 +186,25 @@ button:hover {
         color: white;
     }
 }
-@keyframes changeColor {
+@keyframes change-color {
     to {
         background-color: black;
         color: white;
     }
 }
-@keyframes loadMenu {
+@keyframes load-menu {
     from {
         color: transparent;
         height: 0%;
     }
     to {
-        height: 18%;
+        height: 31%;
     }
 }
-@keyframes closeMenu {
+@keyframes close-menu {
     from {
-        height: 18%;
+        display: block;
+        height: 31%;
         visibility: visible;
     }
     to {
