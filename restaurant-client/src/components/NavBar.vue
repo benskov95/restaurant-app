@@ -198,13 +198,13 @@ button:hover {
         height: 0%;
     }
     to {
-        height: 31%;
+        height: 18%;
     }
 }
 @keyframes close-menu {
     from {
         display: block;
-        height: 31%;
+        height: 18%;
         visibility: visible;
     }
     to {

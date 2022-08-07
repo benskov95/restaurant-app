@@ -1,6 +1,9 @@
 <template>
     <div id="menu-page">
         <h1>Menu</h1>
+        <div v-if="menuItems.msg">
+            <h3>{{menuItems.msg}}</h3>
+        </div>
         <div class="grid-container">
             <ul>
                 <h2>Burgers</h2>
@@ -51,141 +54,19 @@
 </template>
 
 <script lang="ts">
-interface Item {
-    name: string,
-    description: string,
-    price: number,
-    type: number
-}
+import { ref } from "vue";
+import menuFacade from "../server/menuFacade";
 
-const menuItems: Item[] = [
-    {
-        name: "Burger 1", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4",
-        price: 60,
-        type: 1
-    },
-    {
-        name: "Burger 2", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4",
-        price: 75,
-        type: 1
-    },
-    {
-        name: "Burger 3", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5",
-        price: 75,
-        type: 1
-    },
-    {
-        name: "Burger 4", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4",
-        price: 90,
-        type: 1
-    },
-    {
-        name: "Burger 5", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5, Ingredient 6",
-        price: 90,
-        type: 1
-    },
-    {
-        name: "Burger 6", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5, Ingredient 6",
-        price: 100,
-        type: 1
-    },
-    {
-        name: "Pizza 1", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4",
-        price: 70,
-        type: 2
-    },
-    {
-        name: "Pizza 2", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4",
-        price: 70,
-        type: 2
-    },
-    {
-        name: "Pizza 3", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4",
-        price: 70,
-        type: 2
-    },
-    {
-        name: "Pizza 4", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5",
-        price: 90,
-        type: 2
-    },
-    {
-        name: "Dürum 1", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5",
-        price: 40,
-        type: 3
-    },
-    {
-        name: "Dürüm 2", 
-        description: "Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5",
-        price: 50,
-        type: 3
-    },
-    {
-        name: "Side 1", 
-        description: "Description",
-        price: 15,
-        type: 4
-    },
-    {
-        name: "Side 2", 
-        description: "Description",
-        price: 15,
-        type: 4
-    },
-    {
-        name: "Side 3", 
-        description: "Description",
-        price: 20,
-        type: 4
-    },
-    {
-        name: "Side 4", 
-        description: "Description",
-        price: 25,
-        type: 4
-    },
-    {
-        name: "Drink 1", 
-        description: "Description",
-        price: 20,
-        type: 5
-    },
-    {
-        name: "Drink 2", 
-        description: "Description",
-        price: 20,
-        type: 5
-    },
-    {
-        name: "Drink 3", 
-        description: "Description",
-        price: 20,
-        type: 5
-    },
-    {
-        name: "Drink 4", 
-        description: "Description",
-        price: 20,
-        type: 5
-    }
-]
+let menuItems = ref([]);
 
 export default {
     data() {
         return {
             menuItems: menuItems
         }
+    },
+    async created() {
+        menuItems.value = await menuFacade.getMenuItems();
     }
 }
 </script>
