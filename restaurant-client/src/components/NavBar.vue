@@ -1,10 +1,10 @@
 <template>
     <div id="nav" class="navbar" v-if="!useBurgerBtn">
-        <button id="home" @click="scrollToComponent">Home</button>
-        <button id="we-offer" @click="scrollToComponent">What we offer</button>
-        <button id="about" @click="scrollToComponent">About us</button>
-        <button id="menu" @click="scrollToComponent">Menu</button>
-        <button id="contact" @click="scrollToComponent">Contact us</button>
+        <button id="home-page" @click="scrollToComponent">Home</button>
+        <button id="we-offer-page" @click="scrollToComponent">What we offer</button>
+        <button id="about-page" @click="scrollToComponent">About us</button>
+        <button id="menu-page" @click="scrollToComponent">Menu</button>
+        <button id="contact-page" @click="scrollToComponent">Contact us</button>
     </div>
     <div id="nav" class="navbar" v-else>
         <fa-icon 
@@ -80,7 +80,7 @@ export default {
         scrollToComponent(e: PointerEvent) {
             const target = e.target as HTMLTextAreaElement;
             window.scrollTo({
-                top: document.getElementById(target.id + "-page")?.offsetTop,
+                top: document.getElementById(target.id)?.offsetTop,
                 behavior: "smooth"
             })
         },
@@ -168,7 +168,7 @@ button:hover {
 .options-list-el {
     text-align: left;
     padding: 0.5rem 0px 0.5rem 0.5rem;
-    width: 100%;
+    width: inherit;
     cursor: pointer;
 }
 .options-list-el:hover {
@@ -198,13 +198,13 @@ button:hover {
         height: 0%;
     }
     to {
-        height: 18%;
+        height: 10.6rem;
     }
 }
 @keyframes close-menu {
     from {
         display: block;
-        height: 18%;
+        height: 10.6rem;
         visibility: visible;
     }
     to {
