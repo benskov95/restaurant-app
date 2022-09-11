@@ -2,7 +2,7 @@ import express from 'express';
 import con from "./config";
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // request not needed, therefore _
 app.use((_, res, next) => {
@@ -20,5 +20,5 @@ app.get("/", (_, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Express is listening at http://localhost:${port}`);
+  console.log(`Server listening on port: ${port}`);
 });
