@@ -1,10 +1,10 @@
 <template>
     <div id="nav" class="navbar" v-if="!useBurgerBtn">
-        <button id="home-page" @click="scrollToComponent">Home</button>
-        <button id="we-offer-page" @click="scrollToComponent">What we offer</button>
-        <button id="about-page" @click="scrollToComponent">About us</button>
-        <button id="menu-page" @click="scrollToComponent">Menu</button>
-        <button id="contact-page" @click="scrollToComponent">Contact us</button>
+        <button id="contact" @click="scrollToComponent">Contact us</button>
+        <button id="menu" @click="scrollToComponent">Menu</button>
+        <button id="about" @click="scrollToComponent">About us</button>
+        <button id="we-offer" @click="scrollToComponent">What we offer</button>
+        <button id="home" @click="scrollToComponent">Home</button>
     </div>
     <div id="nav" class="navbar" v-else>
         <fa-icon 
@@ -80,7 +80,7 @@ export default {
         scrollToComponent(e: PointerEvent) {
             const target = e.target as HTMLTextAreaElement;
             window.scrollTo({
-                top: document.getElementById(target.id)?.offsetTop,
+                top: document.getElementById(`${target.id}-page`)?.offsetTop,
                 behavior: "smooth"
             })
         },
@@ -123,8 +123,8 @@ export default {
     animation-fill-mode: forwards;
 }
 button {
-    float: left;
-    margin: 4vh 0.5rem 0rem 0.5rem;
+    float: right;
+    margin: 4vh 1rem 0rem 0.5rem;
     background-color: transparent;
     color: inherit;
     border: 0px;

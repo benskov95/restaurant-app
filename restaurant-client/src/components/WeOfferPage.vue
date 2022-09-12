@@ -3,17 +3,17 @@
         <h1>What we offer</h1>
         <div id="grid-container">
             <div style="opacity: 0">
-                <img src="https://gastrofun.dk/wp-content/uploads/2020/04/Hjemmelavet-Burger-Shack-Burger-1.jpg" alt="" />
+                <img src="../images/we-offer-1.jpg" alt="" />
                 <h2>Burgers</h2>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae ipsum sagittis, tincidunt tortor vitae, vestibulum quam. Pellentesque vitae porttitor erat. Duis sodales erat a ante egestas tristique. 
             </div>
             <div style="opacity: 0; animation-delay: 0.5s">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Supreme_pizza.jpg/800px-Supreme_pizza.jpg" alt="" />
+                <img src="../images/we-offer-2.jpg" alt="" />
                 <h2>Pizza</h2>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae ipsum sagittis, tincidunt tortor vitae, vestibulum quam. Pellentesque vitae porttitor erat. Duis sodales erat a ante egestas tristique. 
             </div>
             <div style="opacity: 0; animation-delay: 1s">
-                <img src="https://img.mummum.dk/wp-content/uploads/2022/03/IMG_9740-2-min.jpg" alt="" />
+                <img src="../images/we-offer-3.jpg" alt="" />
                 <h2>Dürüm</h2>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae ipsum sagittis, tincidunt tortor vitae, vestibulum quam. Pellentesque vitae porttitor erat. Duis sodales erat a ante egestas tristique. 
             </div>

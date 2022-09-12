@@ -6,7 +6,7 @@
 
 <style scoped>
 div {
-    background-image: url("https://www.zuerich.com/sites/default/files/web_zuerich_essen_burger_1280x960_4780.jpg");
+    background-image: url("../images/background.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;

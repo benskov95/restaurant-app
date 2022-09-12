@@ -12,7 +12,7 @@ div {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url("https://images.squarespace-cdn.com/content/v1/57879a6cbebafb879f256735/1579721476536-V0ZXZDAJ7P1H939N5FGF/header2.jpg");
+    background-image: url("../images/home.jpg");
     background-size: cover;
     background-position: center;
 }

@@ -2,6 +2,7 @@
   "name": "restaurant-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://benskov.com/restaurant",
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
