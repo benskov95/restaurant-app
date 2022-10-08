@@ -1,5 +1,5 @@
 import express from 'express';
-import con from "./config";
+import pool from "./config";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -13,9 +13,13 @@ app.use((_, res, next) => {
 })
 
 app.get("/", (_, res) => {
-  con.query("select * from menu_item",  (err, result) => {
-    if (err) { res.send({msg: "Error in API"}) }
-    else { res.send(result) }
+  pool.query("select * from menu_item",  (err, result) => {
+    if (err) { 
+      res.send({msg: "Error in API"});
+      console.log(err.message);
+      return;
+    }
+    res.send(result) 
   })
 });
 
