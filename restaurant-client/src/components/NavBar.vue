@@ -48,6 +48,15 @@ let useBurgerBtn = ref(false);
 let showDropdownMenu = ref(false);
 let dropdownId = ref("dropdown-default");
 
+const changeNavbar = () => {
+    if (window.innerWidth <= 700) {
+            useBurgerBtn.value = true;
+    } else {
+        useBurgerBtn.value = false;
+        showDropdownMenu.value = false;
+        dropdownId.value = "dropdown-default";
+    }
+}
 document.addEventListener("scroll", () => {
     let el = document.getElementById("nav") as HTMLElement; 
     if (window.scrollY > 0) {
@@ -57,16 +66,12 @@ document.addEventListener("scroll", () => {
     }
 })
 
-// resize event is not on the document object, only on window.
+// resize event only works on window.
 window.addEventListener("resize", () => {
-    if (window.innerWidth <= 700) {
-        useBurgerBtn.value = true;
-    } else {
-        useBurgerBtn.value = false;
-        showDropdownMenu.value = false;
-        dropdownId.value = "dropdown-default";
-    }
+    changeNavbar();
 })
+
+changeNavbar(); // run initially and on resize
 
 export default {
     data() {
@@ -99,7 +104,7 @@ export default {
     padding-bottom: 3px;
     position: fixed;
     width: 100%;
-    height: 10%;
+    height: 8vh;
     z-index: 1;
 }
 .navbar-scroll-down {
@@ -107,7 +112,7 @@ export default {
     padding-bottom: 3px;
     position: fixed;
     width: 100%;
-    height: 10%;
+    height: 8vh;
     z-index: 1;
     animation: load 1s;
     animation-fill-mode: forwards;
@@ -117,7 +122,7 @@ export default {
     padding-bottom: 3px;
     position: fixed;
     width: 100%;
-    height: 10%;
+    height: 8vh;
     z-index: 1;
     animation: unload 1s;
     animation-fill-mode: forwards;

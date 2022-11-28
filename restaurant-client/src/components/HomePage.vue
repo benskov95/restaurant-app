@@ -22,7 +22,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     width: auto;
     display: inline-block;
     overflow: hidden; 

@@ -50,7 +50,7 @@ h1 {
 }
 .grid-item {
     width: 25vw;
-    font-size: 1.2rem;
+    font-size: 1rem;
     opacity: 0;
     animation: appear 1s forwards;
 }
@@ -68,9 +68,15 @@ h1 {
         opacity: 1;
     }
 }
-@media(min-width: 1000px) {
+@media(min-width: 800px) {
     #we-offer-page {
         margin-bottom: 10%;
     }
+    .grid-item {
+    width: 25vw;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: appear 1s forwards;
+}
 }
 </style>

@@ -40,6 +40,7 @@ body {
 }
 .container {
   position: relative;
+  overflow: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

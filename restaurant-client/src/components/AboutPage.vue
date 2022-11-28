@@ -55,4 +55,10 @@
     height: 100%;
     object-fit: cover;
 }
+@media(max-width: 800px) {
+    #about-page::before {
+        height: 3rem;
+        margin-top: -3rem;
+    }
+}
 </style>
